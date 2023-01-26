@@ -35,6 +35,7 @@ return {
 		width = width or 1
 		local mask = (1 << width) - 1
 		n = n & ~(mask << field) | ((v & mask) << field)
+		return n
 	end,
 	-- from https://stackoverflow.com/questions/10134805/bitwise-rotate-left-function
 	lrotate = function(a,b)
