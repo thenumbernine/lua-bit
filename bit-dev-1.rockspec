@@ -11,6 +11,9 @@ for lua compatability with the luajit bit library
 	homepage = "https://github.com/thenumbernine/lua-bit",
 	license = "MIT"
 }
+dependencies = {
+	"lua >= 5.1",
+}
 build = {
 	type = "builtin",
 	modules = {
