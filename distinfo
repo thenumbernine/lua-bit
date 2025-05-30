@@ -1,6 +1,6 @@
 name = "bit"
 files = {
 	["README.md"] = "bit/README.md",
-	["bit-dev-1.rockspec"] = "bit/bit-dev-1.rockspec",
+	["bit.rockspec"] = "bit/bit.rockspec",
 	["bit.lua"] = "bit/bit.lua",
 }
