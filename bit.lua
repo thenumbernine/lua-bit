@@ -1,6 +1,6 @@
 -- purely for compatability's sake
-
-return {
+local bit
+bit = {
 	arshift = function(a,b) return a >> b end,
 	band = function(c, ...)
 		for i=1,select('#', ...) do
@@ -51,4 +51,25 @@ return {
 	rshift = function(a,b)
 		return a >> b
 	end,
+
+	-- my attempt at compat with luajit's bit library:
+	tobit = function(x)
+		x = bit.band(0xffffffff, x)
+		if x > 0x7fffffff then return x - 0x100000000 end	-- needed in lua5.4? i should test this...
+		return x
+	end,
+	tohex = function(x, len)
+		len = len or 8
+		return ('%0'..len..'x'):format(x):sub(-len)
+	end,
+	bswap = function(x)
+		return ((x & 0xff) << 24)
+			| ((x & 0xff00) << 8)
+			| ((x & 0xff0000) >> 8)
+			| ((x & 0xff000000) >> 24)
+	end,
 }
+
+bit.rol = bit.lrotate
+bit.ror = bit.rrotate
+return bit
