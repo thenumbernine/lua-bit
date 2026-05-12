@@ -3,6 +3,8 @@
 --------------------------------------------
 
 name = "bit"
+git = "https://github.com/thenumbernine/lua-bit"
+
 files = {
 	"LICENSE",
 	"README.md",
